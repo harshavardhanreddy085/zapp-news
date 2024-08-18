@@ -40,7 +40,7 @@ export default class News extends Component {
     this.setState({
       loadi: true
     })
-    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=75c4f453c70e42a09fb876730416fe5d&page=${this.state.page+1}&pageSize=${this.props.pageSize}`;
+    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey={process.env.api_key}&page=${this.state.page+1}&pageSize=${this.props.pageSize}`;
     let data = await fetch(url);
     let preData = await data.json(); 
     this.setState({
@@ -53,7 +53,7 @@ async componentDidMount(){
   this.setState({
     loadi: true
   })
-  let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=75c4f453c70e42a09fb876730416fe5d&page=1&pageSize=${this.props.pageSize}`;
+  let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey={process.env.api_key}&page=1&pageSize=${this.props.pageSize}`;
   let data = await fetch(url);
   let preData = await data.json(); 
   console.log(preData);
